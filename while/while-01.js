@@ -1,6 +1,5 @@
 const prompt = require('prompt-sync')();
 let opcao = ' ';
-<<<<<<< HEAD
 let nomes = [];
 const notas = [];
 
@@ -46,13 +45,3 @@ for (let i = 0; i < nomes.length; i++) {
 
 
 
-=======
-
-while (opcao !== "3") {
-    console.log("\n========== MENU ==========");
-    console.log("1. Cadastra Aluno");
-    console.log("2. Listar Alunos");
-    console.log("3. Sair");
-    opcao = prompt("Opção: ");
-}
->>>>>>> b06d30bc4c3f1ea1d43b8599858a8a8c8672e16b
