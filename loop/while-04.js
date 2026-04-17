@@ -1,7 +1,7 @@
 const prompt = require('prompt-sync')();
 const diasPrazo = [];
-const quantidade = [];
 const produto = [];
+const qtd = [];
 const setor = [];
 let opcao = ' ';
 let zonaVermelha = "Urgente!", zonaLaranja = "Alta", zonaAmarela = "Média", zonaVerde = "Baixa"
@@ -20,10 +20,13 @@ while(opcao !=="5"){
 // CADASTRAR PEDIDOS
  if (opcao === "1"){
     let pedido = prompt("Nome do Produto: ");
+    const quantidade = Number(prompt("Qtd: "));
     console.log("Produto Cadastrado!")
     console.log(`PED${produto.length}`);
+    console.log(`Quantidade: ${quantidade}`);
 
     produto.push(pedido);
+    qtd.push(quantidade);
 
 // LISTAR PEDIDOS
 } if (opcao === "2"){
@@ -33,7 +36,7 @@ if (produto.length === 0) {
         console.log("Nenhum pedido cadastrado no momento.");
 } else {
     for (let i = 0; i < produto.length; i++) {
-    console.log(`PED${i} | Produto: ${produto[i]}`);}
+    console.log(`PED${i} | Produto: ${produto[i]} | Quantidade: ${qtd[i]}`);}
 } 
 } if (opcao === "3"){
     console.log("\n--Resumo Gerencial de Pedidos--");
@@ -53,6 +56,17 @@ if (produto.length === 0) {
         console.log("Prioridade: ", zonaVerde);
     } break;
 }
+} if (opcao === "4"){
+    console.log("\n--Busca de Pedidos--");
+    let busca = prompt("Qual Produto? : ");
+    for (let i = 0; i < produto.length; i++) {
+    if (produto[i] === busca) {
+        console.log(`PED${i} | Produto: ${produto[i]} | Quantidade: ${qtd[i]}`);
+}
+    }    
+
+        
+
 
 
 
@@ -89,8 +103,5 @@ if (produto.length === 0) {
 } if (opcao === "5"){
     console.log("Saindo...");
 
-
 }
-
 }
-
