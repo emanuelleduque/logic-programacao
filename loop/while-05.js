@@ -4,6 +4,11 @@ let extrato = [];
 let opcao = ''
 let valorDeposito = [];
 
+let qtdDeposito = 0;
+let qtdSaques = 0;
+let totalDepositado = 0;
+let totalSacado = 0;
+
 
 while(opcao !=="5"){
     console.log("\n-----Caixa Eletrônico-----");
@@ -21,7 +26,6 @@ if (opcao == "1"){
 
 if (opcao == "2"){
     const deposito = Number(prompt("Digite o valor desejado para depósito: "));
-    console.log("Saldo: R$", saldoInicial + deposito);
 
     if (deposito <= 0){
         console.log("Digite um valor válido!");
@@ -55,6 +59,17 @@ if (opcao == "2"){
 
 } if (opcao === "4"){
     console.log("\n--Extrato--");
+
+    if (extrato.length === 0){
+        console.log("Nenhuma movimentação realizada no momento.");
+    } else {
+        console.log("Extrato:", extrato);
+    }
+
+} if (opcao === "5"){
+    console.log("\n--Saldo Final--");
+    console.log(`Qtd. de Depósitos: ${qtdDeposito.length}`);
+    console.log(`Qtd. de Saques: ${qtdSaques.length}`);
 }
 
 
