@@ -23,51 +23,39 @@ if (opcao == "2"){
     const deposito = Number(prompt("Digite o valor desejado para depósito: "));
     console.log("Saldo: R$", saldoInicial + deposito);
 
+    if (deposito <= 0){
+        console.log("Digite um valor válido!");
+    } else {
+        saldoInicial += deposito;
+        extrato.push(`Depósito: +R$ ${deposito.toFixed(2)}`);
+        console.log("Depósito realizado!");
+        console.log("Saldo atual: R$", saldoInicial.toFixed(2));
+    }
+
     if (deposito === 0){
-        console.log("Digite um valor válido para continuar com o depósito!")
+        console.log("Digite um valor válido para continuar com o depósito!");
     }
-}
 
-if (opcao === "3"){
+} if (opcao === "3"){
     const saque = Number(prompt("Digite o valor desejado para saque: "));
-    const saldoDisponivel = saldoInicial + deposito;
 
-    if (saque < 0){
-        console.log("Saldo Insuficiente");
+    if (saque <= 0){
+        console.log("Digite um valor válido!");
     }
-    else if (saque <= saldoDisponivel){
-        console.log("Saldo: R$ ", deposito - saque);
-        console.log("Extrato: R$ ", saque);
+    else if (saque > saldoInicial){
+        console.log("Saldo insuficiente para realizar o saque!");
     }
-    
+    else {
+        saldoInicial -= saque; 
+        extrato.push(`Saque: -R$ ${saque.toFixed(2)}`);
+        console.log("Saque realizado!");
+        console.log("Saldo atual: R$", saldoInicial.toFixed(2));
+
+    }
+
+} if (opcao === "4"){
+    console.log("\n--Extrato--");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
